@@ -1,0 +1,10 @@
+CREATE TABLE Patients (
+    PatientID INT PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL,
+    DateOfBirth DATE NOT NULL,
+    AdmissionDate DATE NOT NULL,
+    MedicalCondition VARCHAR(255)
+);
+
+INSERT INTO Patients (PatientID, Name, DateOfBirth, AdmissionDate, MedicalCondition)
+VALUES (1, 'John Doe', '1985-07-15', '2024-09-04', 'Hypertension');
