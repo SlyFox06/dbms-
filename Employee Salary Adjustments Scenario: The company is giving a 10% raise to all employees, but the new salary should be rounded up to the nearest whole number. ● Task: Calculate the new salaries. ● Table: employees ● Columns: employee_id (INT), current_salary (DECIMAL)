@@ -1,0 +1,7 @@
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    CurrentSalary DECIMAL(10, 2) NOT NULL
+);
+SELECT EmployeeID, 
+       CEILING(CurrentSalary * 1.10) AS NewSalary
+FROM Employees;
