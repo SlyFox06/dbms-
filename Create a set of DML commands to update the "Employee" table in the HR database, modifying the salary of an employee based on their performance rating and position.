@@ -1,0 +1,18 @@
+CREATE TABLE Employee (
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    Position VARCHAR(50),
+    Salary DECIMAL(10, 2),
+    PerformanceRating INT CHECK (PerformanceRating BETWEEN 1 AND 5)
+);
+
+-- Example: Increase salary by 10% for employees with a performance rating of 5
+UPDATE Employee
+SET Salary = Salary * 1.10
+WHERE PerformanceRating = 5;
+
+-- Example: Increase salary by 5% for employees with a performance rating of 4 and position of 'Manager'
+UPDATE Employee
+SET Salary = Salary * 1.05
+WHERE PerformanceRating = 4 AND Position = 'Manager';
