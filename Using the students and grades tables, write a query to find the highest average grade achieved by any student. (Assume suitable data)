@@ -1,0 +1,17 @@
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Grades (
+    GradeID INT PRIMARY KEY,
+    StudentID INT,
+    Grade DECIMAL(3, 2) NOT NULL,
+    FOREIGN KEY (StudentID) REFERENCES Students(StudentID)
+);
+SELECT MAX(AverageGrade) AS HighestAverageGrade
+FROM (
+    SELECT AVG(Grade) AS AverageGrade
+    FROM Grades
+    GROUP BY StudentID
+) AS StudentAverages;
