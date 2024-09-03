@@ -1,0 +1,7 @@
+CREATE TABLE Sales (
+    SaleID INT PRIMARY KEY,
+    Amount DECIMAL(10, 2) NOT NULL,
+    SaleDate DATE NOT NULL
+);
+SELECT ROUND(SUM(Amount), 2) AS TotalRevenue
+FROM Sales;
