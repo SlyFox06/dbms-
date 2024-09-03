@@ -1,0 +1,28 @@
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    Salary DECIMAL(10, 2) NOT NULL,
+    DepartmentID INT
+);
+
+-- Total number of employees
+SELECT COUNT(*) AS TotalEmployees FROM Employees;
+
+-- Average salary
+SELECT AVG(Salary) AS AverageSalary FROM Employees;
+
+-- Highest salary
+SELECT MAX(Salary) AS HighestSalary FROM Employees;
+
+-- Lowest salary
+SELECT MIN(Salary) AS LowestSalary FROM Employees;
+
+-- Sum of all salaries
+SELECT SUM(Salary) AS TotalSalaries FROM Employees;
+
+SELECT DepartmentID, 
+       AVG(Salary) AS AverageSalary, 
+       SUM(Salary) AS TotalSalary
+FROM Employees
+GROUP BY DepartmentID;
