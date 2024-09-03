@@ -1,0 +1,10 @@
+CREATE TABLE Inventory (
+    ProductID INT PRIMARY KEY,
+    ProductName VARCHAR(100) NOT NULL,
+    Quantity INT NOT NULL CHECK (Quantity >= 0)
+);
+
+-- Example: Increase the quantity of a specific product by 100 units after restocking
+UPDATE Inventory
+SET Quantity = Quantity + 100
+WHERE ProductID = 1;
