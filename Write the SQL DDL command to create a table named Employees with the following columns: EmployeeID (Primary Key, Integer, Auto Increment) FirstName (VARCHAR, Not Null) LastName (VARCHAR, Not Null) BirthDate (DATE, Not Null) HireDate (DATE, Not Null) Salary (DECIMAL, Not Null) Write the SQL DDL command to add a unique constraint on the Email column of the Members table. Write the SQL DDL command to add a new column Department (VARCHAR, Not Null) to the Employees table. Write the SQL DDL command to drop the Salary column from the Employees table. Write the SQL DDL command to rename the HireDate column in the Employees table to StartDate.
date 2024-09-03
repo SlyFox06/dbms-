@@ -1,0 +1,24 @@
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY AUTO_INCREMENT,  -- Primary Key with Auto Increment
+    FirstName VARCHAR(255) NOT NULL,
+    LastName VARCHAR(255) NOT NULL,
+    BirthDate DATE NOT NULL,
+    HireDate DATE NOT NULL,
+    Salary DECIMAL(10, 2) NOT NULL
+);
+
+CREATE TABLE Members (
+    MemberID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(255) NOT NULL,
+    Email VARCHAR(255) NOT NULL
+);
+
+ALTER TABLE Members
+ADD CONSTRAINT unique_email UNIQUE (Email);
+
+ALTER TABLE Employees
+ADD Department VARCHAR(255) NOT NULL;
+ALTER TABLE Employees
+DROP COLUMN Salary;
+ALTER TABLE Employees
+CHANGE COLUMN HireDate StartDate DATE NOT NULL;
