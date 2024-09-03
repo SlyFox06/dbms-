@@ -1,0 +1,25 @@
+CREATE TABLE Customer (
+    Custid INT PRIMARY KEY AUTO_INCREMENT,    -- Primary Key, Auto Increment
+    Custname VARCHAR(255) NOT NULL,           -- Customer Name
+    Addr VARCHAR(255),                        -- Address
+    phno VARCHAR(15),                         -- Phone Number
+    panno VARCHAR(10) NOT NULL                -- PAN Number (Assuming 10 characters)
+);
+
+CREATE TABLE Loan (
+    Loanid INT PRIMARY KEY AUTO_INCREMENT,    -- Primary Key, Auto Increment
+    Amount DECIMAL(15, 2) NOT NULL,           -- Loan Amount
+    Interest DECIMAL(5, 2) NOT NULL,          -- Interest Rate
+    Custid INT,                               -- Foreign Key to Customer Table
+    FOREIGN KEY (Custid) REFERENCES Customer(Custid)  -- Foreign Key Constraint
+);
+
+CREATE TABLE Account (
+    Accid INT PRIMARY KEY AUTO_INCREMENT,     -- Primary Key, Auto Increment
+    Accbal DECIMAL(15, 2) NOT NULL,           -- Account Balance
+    Custid INT,                               -- Foreign Key to Customer Table
+    FOREIGN KEY (Custid) REFERENCES Customer(Custid)  -- Foreign Key Constraint
+);
+
+ALTER TABLE Customer
+ADD CUSDOB DATE;  -- Add Date of Birth Column
