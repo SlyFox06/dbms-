@@ -1,0 +1,12 @@
+CREATE TABLE Publishers (
+    PublisherID INT PRIMARY KEY AUTO_INCREMENT,  -- Primary Key with Auto Increment
+    Name VARCHAR(255) NOT NULL,
+    Address VARCHAR(255) NOT NULL,
+    Phone VARCHAR(20)
+);
+
+ALTER TABLE Publishers
+ADD CONSTRAINT unique_name UNIQUE (Name);
+
+ALTER TABLE Publishers
+ADD ISBN VARCHAR(13) NOT NULL UNIQUE;
