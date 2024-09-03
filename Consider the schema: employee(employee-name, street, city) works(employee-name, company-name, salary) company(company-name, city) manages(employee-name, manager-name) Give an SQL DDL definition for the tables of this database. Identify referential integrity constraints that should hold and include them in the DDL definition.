@@ -1,0 +1,27 @@
+CREATE TABLE employee (
+    employee_name VARCHAR(255) PRIMARY KEY,
+    street VARCHAR(255),
+    city VARCHAR(255)
+);
+
+CREATE TABLE company (
+    company_name VARCHAR(255) PRIMARY KEY,
+    city VARCHAR(255)
+);
+
+CREATE TABLE works (
+    employee_name VARCHAR(255),
+    company_name VARCHAR(255),
+    salary DECIMAL(10, 2),
+    PRIMARY KEY (employee_name, company_name),
+    FOREIGN KEY (employee_name) REFERENCES employee(employee_name),
+    FOREIGN KEY (company_name) REFERENCES company(company_name)
+);
+
+CREATE TABLE manages (
+    employee_name VARCHAR(255),
+    manager_name VARCHAR(255),
+    PRIMARY KEY (employee_name, manager_name),
+    FOREIGN KEY (employee_name) REFERENCES employee(employee_name),
+    FOREIGN KEY (manager_name) REFERENCES employee(employee_name)
+);
